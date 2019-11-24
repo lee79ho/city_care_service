@@ -33,6 +33,10 @@ app.get('/incidents', (req, res) => {
   res.json(incidents)
 });
 
+app.get('/clear',(req,res) => {
+  incidents = [] // clear all incidents 
+})
+
 app.post('/incidents',upload.single('image'),(req,res) => {
 
   let incident = {title: req.body.title, description: req.body.description,imageURL: `/uploads/${req.file.filename}`}
