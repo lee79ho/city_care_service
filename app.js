@@ -35,6 +35,7 @@ app.get('/incidents', (req, res) => {
 
 app.get('/clear',(req,res) => {
   incidents = [] // clear all incidents 
+  res.send("Incidents has been cleared...")
 })
 
 app.post('/incidents',upload.single('image'),(req,res) => {
