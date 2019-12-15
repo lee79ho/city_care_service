@@ -38,6 +38,14 @@ app.get('/clear',(req,res) => {
   res.send("Incidents has been cleared...")
 })
 
+app.post('/incidentsNoImage',(req,res) => {
+
+  let incident = {title: req.body.title, description: req.body.description}
+  incidents.push(incident)
+  res.json({success: true})
+
+});
+
 app.post('/incidents',upload.single('image'),(req,res) => {
 
   let incident = {title: req.body.title, description: req.body.description,imageURL: `/uploads/${req.file.filename}`}
