@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded())
 
-const PORT = process.env.PORT || 8080
+const PORT = 3000
 
 // static files 
 app.use('/uploads',express.static('uploads'))
@@ -39,7 +39,7 @@ app.get('/clear',(req,res) => {
 })
 
 app.post('/incidentsNoImage',(req,res) => {
-
+  console.log(req.body)
   let incident = {title: req.body.title, description: req.body.description}
   incidents.push(incident)
   res.json({success: true})
@@ -69,5 +69,5 @@ app.post('/profile', upload.single('image'), function (req, res, next) {
 
 // listen for requests :)
 app.listen(PORT, function () {
-  console.log("Your app is listening on port ");
+  console.log("Your app is listening on port " + PORT);
 });
